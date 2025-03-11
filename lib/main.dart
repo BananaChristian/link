@@ -6,10 +6,10 @@ import 'package:link/theme/theme.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options:DefaultFirebaseOptions.currentPlatform,
   );
-  WidgetsFlutterBinding.ensureInitialized;
   runApp(
     ChangeNotifierProvider(
       create: (_)=>ThemeProvider(),

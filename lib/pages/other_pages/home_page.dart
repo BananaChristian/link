@@ -33,42 +33,44 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        body: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const CircleAvatar(
-                      child:Icon(Icons.person)
-                    ),
-                    Text('LINK',style:TextStyle(color:Theme.of(context).colorScheme.secondary,fontSize: 25)),
-                    const Icon(Icons.search)
-                  ],
-                ),
-              ),
-              const SizedBox(height: 10),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text('Chats'),
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.secondary,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                    ),
+        body: SafeArea(
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const CircleAvatar(
+                        child:Icon(Icons.person)
+                      ),
+                      Text('LINK',style:TextStyle(color:Theme.of(context).colorScheme.secondary,fontSize: 25)),
+                      const Icon(Icons.search)
+                    ],
                   ),
-                  child: _buildUserList(),
                 ),
-              ),
-            ],
+                const SizedBox(height: 10),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text('Chats'),
+                ),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.secondary,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                      ),
+                    ),
+                    child: _buildUserList(),
+                  ),
+                ),
+              ],
+            ),
           ),
         ));
   }

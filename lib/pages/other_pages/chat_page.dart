@@ -66,31 +66,33 @@ class _ChatPageState extends State<ChatPage> {
         elevation: 0.8,
         backgroundColor: Theme.of(context).colorScheme.secondary,
       ),
-      body: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            //The messages
-            Expanded(child:_buildMessagesSection()),
-            //User input
-            Row(
-              children: [
-                Container(
-                  width:MediaQuery.of(context).size.width*0.8,
-                  padding:const EdgeInsets.all(10),
-                  child: CustomFields(
-                      controller: messageController,
-                      hintText: 'Enter a message',
-                      color: Theme.of(context).colorScheme.primary,
-                      obscureText: false),
-                ),
-                IconButton(
-                  icon: Icon(Icons.send,color:Theme.of(context).colorScheme.primary),
-                  onPressed: sendMessage,
-                ),
-              ],
-            )
-          ],
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              //The messages
+              Expanded(child:_buildMessagesSection()),
+              //User input
+              Row(
+                children: [
+                  Container(
+                    width:MediaQuery.of(context).size.width*0.8,
+                    padding:const EdgeInsets.all(10),
+                    child: CustomFields(
+                        controller: messageController,
+                        hintText: 'Enter a message',
+                        color: Theme.of(context).colorScheme.primary,
+                        obscureText: false),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.send,color:Theme.of(context).colorScheme.primary),
+                    onPressed: sendMessage,
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
